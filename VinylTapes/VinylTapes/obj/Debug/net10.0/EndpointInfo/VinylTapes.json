@@ -1,0 +1,723 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "VinylTapes",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Auth/Discogs_login": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/callback": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "name": "oauth_token",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "oauth_verifier",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Vector/search": {
+      "get": {
+        "tags": [
+          "Vector"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Vinyl/add-by-id/{id}": {
+      "post": {
+        "tags": [
+          "Vinyl"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "secret",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Vinyl/{id}": {
+      "get": {
+        "tags": [
+          "Vinyl"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PloksteleDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PloksteleDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PloksteleDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Vinyl/preview/{id}": {
+      "get": {
+        "tags": [
+          "Vinyl"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "el_pastas",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PloksteleDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PloksteleDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PloksteleDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Vinyl/my-collections": {
+      "get": {
+        "tags": [
+          "Vinyl"
+        ],
+        "parameters": [
+          {
+            "name": "el_pastas",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SarasaiDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SarasaiDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SarasaiDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Vinyl/is-in-sarasai": {
+      "get": {
+        "tags": [
+          "Vinyl"
+        ],
+        "parameters": [
+          {
+            "name": "discogsId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "el_pastas",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Vinyl/add-to-type": {
+      "post": {
+        "tags": [
+          "Vinyl"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddToTypeRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddToTypeRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddToTypeRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Vinyl/move-to-type": {
+      "post": {
+        "tags": [
+          "Vinyl"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MoveToTypeRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MoveToTypeRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MoveToTypeRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Vinyl/public/mainomos": {
+      "get": {
+        "tags": [
+          "Vinyl"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PloksteleDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PloksteleDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PloksteleDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Vinyl/add": {
+      "post": {
+        "tags": [
+          "Vinyl"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VinylRegistrationRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VinylRegistrationRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/VinylRegistrationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AddToTypeRequest": {
+        "type": "object",
+        "properties": {
+          "discogsId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "elPastas": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DainaDto": {
+        "type": "object",
+        "properties": {
+          "pavadinimas": {
+            "type": "string",
+            "nullable": true
+          },
+          "pozicija": {
+            "type": "string",
+            "nullable": true
+          },
+          "trukme": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginDto": {
+        "required": [
+          "elPastas",
+          "slaptazodis"
+        ],
+        "type": "object",
+        "properties": {
+          "elPastas": {
+            "minLength": 1,
+            "type": "string",
+            "format": "email"
+          },
+          "slaptazodis": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "MoveToTypeRequest": {
+        "type": "object",
+        "properties": {
+          "discogsId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "elPastas": {
+            "type": "string",
+            "nullable": true
+          },
+          "fromType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "toType": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PloksteleDto": {
+        "type": "object",
+        "properties": {
+          "discogsId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "atlikejas": {
+            "type": "string",
+            "nullable": true
+          },
+          "albumas": {
+            "type": "string",
+            "nullable": true
+          },
+          "metai": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "irasuKompanija": {
+            "type": "string",
+            "nullable": true
+          },
+          "formatas": {
+            "type": "string",
+            "nullable": true
+          },
+          "vektorius": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "float"
+            },
+            "nullable": true
+          },
+          "dainos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DainaDto"
+            },
+            "nullable": true
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "busena": {
+            "type": "string",
+            "nullable": true
+          },
+          "isigijimoKaina": {
+            "type": "number",
+            "format": "float"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegisterDto": {
+        "required": [
+          "elPastas",
+          "pakartotiSlaptazodi",
+          "slaptazodis",
+          "vardas"
+        ],
+        "type": "object",
+        "properties": {
+          "vardas": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "elPastas": {
+            "minLength": 1,
+            "type": "string",
+            "format": "email"
+          },
+          "slaptazodis": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "pakartotiSlaptazodi": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SarasaiDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tipas": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tipasName": {
+            "type": "string",
+            "nullable": true
+          },
+          "fkMainai": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "fkNaudotojai": {
+            "type": "string",
+            "nullable": true
+          },
+          "ploksteles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PloksteleDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "VinylRegistrationRequest": {
+        "type": "object",
+        "properties": {
+          "discogsId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "conditionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "price": {
+            "type": "number",
+            "format": "double"
+          },
+          "elPastas": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Auth"
+    },
+    {
+      "name": "Vector"
+    },
+    {
+      "name": "Vinyl"
+    }
+  ]
+}

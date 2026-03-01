@@ -1,0 +1,18 @@
+﻿<Router AppAssembly="@typeof(App).Assembly">
+    <Found Context="routeData">
+        @* Čia 'routeData' yra kintamasis, kurį gauname iš maršrutizatoriaus *@
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+    </Found>
+    <NotFound>
+        @* Jei naudotojas įveda neteisingą adresą, rodome šį bloką *@
+        <PageTitle>Nerasta</PageTitle>
+        <LayoutView Layout="@typeof(MainLayout)">
+            <div class="p-20 text-center">
+                <h1 class="text-4xl font-bold text-gray-800">404</h1>
+                <p class="text-gray-500 mt-4">Apgailestaujame, šiuo adresu nieko nėra.</p>
+                <a href="/" class="text-indigo-600 mt-4 inline-block font-bold">Grįžti į pradžią</a>
+            </div>
+        </LayoutView>
+    </NotFound>
+</Router>

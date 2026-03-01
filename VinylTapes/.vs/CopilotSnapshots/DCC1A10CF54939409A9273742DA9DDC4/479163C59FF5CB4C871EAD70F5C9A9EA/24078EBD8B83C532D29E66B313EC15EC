@@ -1,0 +1,198 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Pgvector.EntityFrameworkCore;
+using VinylTapes.Data;
+using VinylTapes.Models;
+using VinylTapes.Services;
+using VinylTapes.Shared.Models; // Naudojame Shared modelius
+
+
+[ApiController]
+[Route("api/[controller]")]
+public class VinylController : ControllerBase
+{
+    private readonly DiscogsService _discogsService;
+    private readonly VinylDbContext _context;
+    private readonly VectorService _vectorService;
+
+
+    public VinylController(DiscogsService discogsService, VinylDbContext context, VectorService vectorService)
+    {
+        _discogsService = discogsService;
+        _context = context;
+        _vectorService = vectorService;
+    }
+
+    [HttpPost("add-by-id/{id}")]
+    public async Task<IActionResult> AddVinyl(int id, string token, string secret)
+    {
+        // Patikriname, ar tokia plokštelė jau yra DB, kad nedubliuotume
+        var existing = await _context.Ploksteles.FindAsync(id);
+        if (existing != null) return Conflict("Ši plokštelė jau užregistruota.");
+
+        var plokstele =  await _discogsService.GetRecordFromDiscogsAsync(id, token, secret);
+        if (plokstele == null) return NotFound("Nepavyko gauti duomenų iš Discogs.");
+        _context.Ploksteles.Add(plokstele);
+        await _context.SaveChangesAsync();
+
+        return Ok(plokstele);
+    }
+
+    [HttpGet("{id}")]
+    public async Task<ActionResult<PloksteleDto>> GetVinyl(int id)
+    {
+        var p = await _context.Ploksteles
+            .Include(x => x.Dainas)
+            .FirstOrDefaultAsync(x => x.Discogsid == id);
+
+        if (p == null) return NotFound();
+
+        // KONVERTAVIMAS: Entity -> DTO
+        // Čia vyksta magija: paverčiame DB objektą į tai, ką supranta naršyklė
+        return new PloksteleDto
+        {
+            DiscogsId = p.Discogsid,
+            Atlikejas = p.Atlikejas,
+            Albumas = p.Albumas,
+            Metai = p.Metai,
+            Vektorius = p.Vektorius?.ToArray().ToList(), 
+            Dainos = p.Dainas.Select(d => new DainaDto
+            {
+                Pavadinimas = d.Pavadinimas,
+                Pozicija = d.Pozicija,
+                Trukme = d.Trukme
+            }).ToList()
+        };
+    }
+    [HttpGet("preview/{id}")]
+    public async Task<ActionResult<PloksteleDto>> GetPreview(int id, string el_pastas)
+    {
+        
+        if (string.IsNullOrEmpty(el_pastas))
+            el_pastas = "user@example.com";
+        if (!_context.Naudotojais.Any(u => u.ElPastas == el_pastas))
+            return BadRequest("Naudotojas nerastas.");
+       string zetonas= _context.Naudotojais.Find(el_pastas).DisgocsZetonas??"";
+       string paslaptis= _context.Naudotojais.Find(el_pastas).DiscogsPaslaptis??"";
+        var p = await _discogsService.GetRecordFromDiscogsAsync(id, zetonas, paslaptis);
+        if (p == null) return NotFound();
+
+        // Convert to DTO so client receives a simple float list for the vector
+        var dto = new PloksteleDto
+        {
+            DiscogsId = p.Discogsid,
+            Atlikejas = p.Atlikejas,
+            Albumas = p.Albumas,
+            Metai = p.Metai,
+            IrasuKompanija = p.IrasuKompanija,
+            Formatas = p.Formatas,
+            Vektorius = p.Vektorius?.ToArray().ToList(),
+            Dainos = p.Dainas.Select(d => new DainaDto { Pavadinimas = d.Pavadinimas, Pozicija = d.Pozicija, Trukme = d.Trukme }).ToList(),
+            ImageUrl = null,
+            busena = null,
+            IsigijimoKaina = p.IsigijimoKaina.HasValue ? (float)p.IsigijimoKaina.Value : 0f
+        };
+
+        return Ok(dto);
+    }
+
+    [HttpGet("my-collections")]
+    public async Task<ActionResult<List<SarasaiDto>>> GetMyCollections(string el_pastas)
+    {
+        if (string.IsNullOrEmpty(el_pastas)) return BadRequest("El. pastas privalomas.");
+
+        var lists = await _context.Sarasais
+            .Where(s => s.FkNaudotojai == el_pastas)
+            .Include(s => s.TipasNavigation)
+            .Include(s => s.FkPloksteles)
+            .ToListAsync();
+
+        var result = lists.Select(s => new SarasaiDto
+        {
+            Id = s.Id,
+            Tipas = s.Tipas,
+            TipasName = s.TipasNavigation?.Name,
+            FkMainai = s.FkMainai,
+            FkNaudotojai = s.FkNaudotojai,
+            Ploksteles = s.FkPloksteles.Select(p => new PloksteleDto
+            {
+                DiscogsId = p.Discogsid,
+                Atlikejas = p.Atlikejas,
+                Albumas = p.Albumas,
+                Metai = p.Metai,
+                IrasuKompanija = p.IrasuKompanija,
+                Formatas = p.Formatas,
+                Vektorius = p.Vektorius?.ToArray().ToList(),
+                Dainos = p.Dainas?.Select(d => new DainaDto { Pavadinimas = d.Pavadinimas, Pozicija = d.Pozicija, Trukme = d.Trukme }).ToList() ?? new List<DainaDto>(),
+                ImageUrl = null,
+                busena = p.BusenaNavigation?.Name ?? p.Busena.ToString(),
+                IsigijimoKaina = p.IsigijimoKaina.HasValue ? (float)p.IsigijimoKaina.Value : 0f
+            }).ToList()
+        }).ToList();
+
+        return Ok(result);
+    }
+
+    [HttpPost("add")]
+    public async Task<IActionResult> RegisterVinyl([FromBody] VinylRegistrationRequest req)
+    {
+        if (string.IsNullOrEmpty(req.ElPastas))
+            return BadRequest("El. paštas privalomas.");
+
+        var user = await _context.Naudotojais.FindAsync(req.ElPastas);
+        if (user == null) return BadRequest("Naudotojas nerastas.");
+
+        var token = user.DisgocsZetonas ?? string.Empty;
+        var secret = user.DiscogsPaslaptis ?? string.Empty;
+
+        // Paimame info iš Discogs
+        var plokstele = await _discogsService.GetRecordFromDiscogsAsync(req.DiscogsId, token, secret);
+        if (plokstele == null) return NotFound("Nepavyko gauti duomenų iš Discogs.");
+
+        // Priskiriame papildomus duomenis
+        plokstele.Busena = req.ConditionId;
+        plokstele.IsigijimoKaina = req.Price;
+
+        // Sukuriame sarašą (mano sąrašą) su fk_mainai = null ir fk_naudotojas = user email
+        var tipas = await _context.SarasuTipais.OrderBy(t => t.IdSarasuTipai).FirstOrDefaultAsync();
+        if (tipas == null)
+        {
+            tipas = new SarasuTipai { IdSarasuTipai = 1, Name = "mano" };
+            _context.SarasuTipais.Add(tipas);
+        }
+
+        var sarasas = new Sarasai
+        {
+            FkMainai = null,
+            FkNaudotojai = user.ElPastas,
+            Tipas = tipas.IdSarasuTipai
+        };
+
+        if (sarasas.Id == 0)
+        {
+            var maxId = await _context.Sarasais.MaxAsync(s => (int?)s.Id) ?? 0;
+            sarasas.Id = maxId + 1;
+        }
+
+        // Pridėjam plokštelę į sąrašą — EF įrašys į tarpinę lentelę sarasai_plokstele
+        sarasas.FkPloksteles.Add(plokstele);
+
+        // 4. Išsaugome viską vienu kartu
+        _context.Ploksteles.Add(plokstele);
+        _context.Sarasais.Add(sarasas);
+        await _context.SaveChangesAsync();
+
+        return Ok();
+    }
+
+    // Pagalbinė klasė užklausai
+    public class VinylRegistrationRequest
+    {
+        public int DiscogsId { get; set; }
+        public int ConditionId { get; set; }
+        public decimal Price { get; set; }
+        public string ElPastas { get; set; } = null!;
+    }
+
+
+}

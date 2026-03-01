@@ -1,0 +1,137 @@
+@page "/vinyl/{Id:int}"
+@using VinylTapes.Shared.Models
+@inject HttpClient Http
+@inject IJSRuntime JS
+@inject NavigationManager Nav
+@inject VinylExchange.Client.Services.AuthStateService AuthState
+
+<h1 class="text-2xl font-bold mb-4">Plokštelės detalės</h1>
+
+@if (isLoading)
+{
+    <p>Įkeliam...</p>
+}
+else if (record == null)
+{
+    <p>Plokštelė nerasta.</p>
+}
+else
+{
+    <div class="grid md:grid-cols-3 gap-6">
+        <div class="col-span-1 bg-white p-6 rounded-2xl shadow">
+            <img src="@(string.IsNullOrEmpty(record.ImageUrl) ? "https://via.placeholder.com/400" : record.ImageUrl)" class="w-full rounded-xl mb-4" />
+            <h2 class="text-xl font-bold">@record.Albumas</h2>
+            <p class="text-sm text-gray-500">@record.Atlikejas</p>
+            <p class="mt-2 text-sm">@record.IrasuKompanija</p>
+            <p class="mt-2 text-sm">Metai: @record.Metai</p>
+            <p class="mt-2 text-sm">Būsena: @record.busena</p>
+            <p class="mt-2 text-sm font-bold">Kaina: @record.IsigijimoKaina €</p>
+
+            <div class="mt-4 flex flex-col gap-2">
+                @if (showMakeMainomosButton)
+                {
+                    <button class="bg-indigo-600 text-white py-2 rounded" @onclick="MakeMainomos">Pakeisti į Mainomos</button>
+                }
+                @if (showMakeManoButton)
+                {
+                    <button class="bg-green-600 text-white py-2 rounded" @onclick="MakeMano">Pakeisti į Mano</button>
+                }
+                @if (showAddToNoriuButton)
+                {
+                    <button class="bg-yellow-600 text-white py-2 rounded" @onclick="AddToNoriu">Pridėti į Noriu</button>
+                }
+            </div>
+        </div>
+
+        <div class="col-span-2 bg-white p-6 rounded-2xl shadow">
+            <h3 class="text-lg font-semibold mb-4">Dainų sąrašas</h3>
+            <ul class="list-disc pl-6">
+                @foreach (var d in record.Dainos)
+                {
+                    <li class="mb-2"><strong>@d.Pozicija</strong> - @d.Pavadinimas (@d.Trukme)</li>
+                }
+            </ul>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+    private PloksteleDto? record;
+    private bool isLoading = true;
+    private bool showMakeMainomosButton = false;
+    private bool showMakeManoButton = false;
+    private bool showAddToNoriuButton = false;
+    private string userEmail = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            userEmail = await JS.InvokeAsync<string>("localStorage.getItem", "userEmail") ?? string.Empty;
+        }
+        catch { userEmail = string.Empty; }
+
+        var resp = await Http.GetAsync($"api/vinyl/{Id}");
+        if (resp.IsSuccessStatusCode)
+        {
+            record = await resp.Content.ReadFromJsonAsync<PloksteleDto>();
+        }
+
+        // determine buttons
+        // if user logged in, check membership
+        var token = await JS.InvokeAsync<string>("localStorage.getItem", "authToken");
+        var loggedIn = !string.IsNullOrEmpty(token);
+        if (loggedIn && !string.IsNullOrEmpty(userEmail))
+        {
+            // if in user's mano (1) show MakeMainomos
+            var inMano = await Http.GetFromJsonAsync<bool>($"api/vinyl/is-in-sarasai?discogsId={Id}&el_pastas={Uri.EscapeDataString(userEmail)}&type=1");
+            if (inMano) showMakeMainomosButton = true;
+
+            // if viewing mainomos, user can add to mano (we allow always)
+            // showMakeManoButton will be true when not in mano and logged in
+            var inMainomos = await Http.GetFromJsonAsync<bool>($"api/vinyl/is-in-sarasai?discogsId={Id}&el_pastas={Uri.EscapeDataString(userEmail)}&type=3");
+            if (inMainomos) showMakeManoButton = true; // allow move from mainomos to mano
+
+            // allow add to noriu (type 2) if logged in and not already in noriu
+            var inNoriu = await Http.GetFromJsonAsync<bool>($"api/vinyl/is-in-sarasai?discogsId={Id}&el_pastas={Uri.EscapeDataString(userEmail)}&type=2");
+            if (!inNoriu) showAddToNoriuButton = true;
+        }
+
+        isLoading = false;
+    }
+
+    private async Task MakeMainomos()
+    {
+        // move from 1 to 3
+        var req = new { DiscogsId = Id, ElPastas = userEmail, FromType = 1, ToType = 3 };
+        var resp = await Http.PostAsJsonAsync("api/vinyl/move-to-type", req);
+        if (resp.IsSuccessStatusCode)
+        {
+            await JS.InvokeVoidAsync("alert", "Plokštelė pažymėta kaip Mainomos");
+            showMakeMainomosButton = false;
+        }
+    }
+
+    private async Task MakeMano()
+    {
+        var req = new { DiscogsId = Id, ElPastas = userEmail, Type = 1 };
+        var resp = await Http.PostAsJsonAsync("api/vinyl/add-to-type", req);
+        if (resp.IsSuccessStatusCode)
+        {
+            await JS.InvokeVoidAsync("alert", "Plokštelė pridėta į Mano sąrašą");
+            showMakeManoButton = false;
+        }
+    }
+
+    private async Task AddToNoriu()
+    {
+        var req = new { DiscogsId = Id, ElPastas = userEmail, Type = 2 };
+        var resp = await Http.PostAsJsonAsync("api/vinyl/add-to-type", req);
+        if (resp.IsSuccessStatusCode)
+        {
+            await JS.InvokeVoidAsync("alert", "Pridėta į Noriu sąrašą");
+            showAddToNoriuButton = false;
+        }
+    }
+}

@@ -1,0 +1,80 @@
+﻿@page "/login"
+@using VinylTapes.Shared.Models
+@using System.Text.Json
+@inject HttpClient Http
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+@inject VinylExchange.Client.Services.AuthStateService AuthState
+
+<div class="min-h-[80vh] flex items-center justify-center px-6">
+    <div class="bg-white w-full max-w-md p-10 rounded-[3rem] shadow-2xl border border-slate-50 animate-in fade-in zoom-in duration-500">
+        <div class="text-center mb-10">
+            <h1 class="text-3xl font-black text-slate-900 tracking-tight">Prisijungti</h1>
+            <p class="text-slate-400 mt-2">Valdykite savo vinilų kolekciją</p>
+        </div>
+
+        <EditForm Model="loginModel" OnValidSubmit="HandleLogin">
+            <DataAnnotationsValidator />
+
+            <div class="flex flex-col gap-5">
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 ml-4">El. paštas</label>
+                    <InputText @bind-Value="loginModel.ElPastas" placeholder="pavyzdys@mail.com"
+                               class="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-indigo-500 transition-all" />
+                    <ValidationMessage For="@(() => loginModel.ElPastas)" class="text-red-500 text-xs mt-1 ml-4" />
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 ml-4">Slaptažodis</label>
+                    <InputText @bind-Value="loginModel.Slaptazodis" type="password" placeholder="••••••••"
+                               class="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-indigo-500 transition-all" />
+                    <ValidationMessage For="@(() => loginModel.Slaptazodis)" class="text-red-500 text-xs mt-1 ml-4" />
+                </div>
+
+                <button type="submit" class="w-full bg-indigo-600 text-white py-4 rounded-2xl font-bold text-lg hover:bg-indigo-700 hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-indigo-100 mt-4">
+                    Prisijungti
+                </button>
+            </div>
+        </EditForm>
+
+        <div class="text-center mt-10">
+            <p class="text-slate-400">Neturite paskyros? <a href="/register" class="text-indigo-600 font-bold hover:underline">Registruotis</a></p>
+        </div>
+    </div>
+</div>
+
+@code {
+    private LoginDto loginModel = new();
+
+    private async Task HandleLogin()
+    {
+        var response = await Http.PostAsJsonAsync("api/auth/login", loginModel);
+        if (response.IsSuccessStatusCode)
+        {
+            var json = await response.Content.ReadFromJsonAsync<JsonElement>();
+            string? savedToken = null;
+            string? savedEmail = null;
+
+            if (json.ValueKind == JsonValueKind.Object)
+            {
+                if (json.TryGetProperty("token", out var tokenProp))
+                {
+                    savedToken = tokenProp.GetString();
+                    if (!string.IsNullOrEmpty(savedToken))
+                        await JS.InvokeVoidAsync("localStorage.setItem", "authToken", savedToken);
+                }
+                if (json.TryGetProperty("email", out var emailProp))
+                {
+                    savedEmail = emailProp.GetString();
+                    if (!string.IsNullOrEmpty(savedEmail))
+                        await JS.InvokeVoidAsync("localStorage.setItem", "userEmail", savedEmail);
+                }
+            }
+
+            // Notify app about login so layout updates immediately
+            AuthState.MarkLoggedIn(savedToken ?? string.Empty, savedEmail ?? string.Empty);
+
+            Nav.NavigateTo("/");
+        }
+    }
+}

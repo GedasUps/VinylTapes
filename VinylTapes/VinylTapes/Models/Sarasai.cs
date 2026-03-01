@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace VinylTapes.Models;
+
+public partial class Sarasai
+{
+    public int Tipas { get; set; }
+
+    public int Id { get; set; }
+
+    public int? FkMainai { get; set; }
+
+    public string FkNaudotojai { get; set; } = null!;
+
+    public virtual Mainai FkMainaiNavigation { get; set; } = null!;
+
+    public virtual Naudotojai FkNaudotojaiNavigation { get; set; } = null!;
+
+    public virtual SarasuTipai TipasNavigation { get; set; } = null!;
+
+    public virtual ICollection<Plokstele> FkPloksteles { get; set; } = new List<Plokstele>();
+   
+}

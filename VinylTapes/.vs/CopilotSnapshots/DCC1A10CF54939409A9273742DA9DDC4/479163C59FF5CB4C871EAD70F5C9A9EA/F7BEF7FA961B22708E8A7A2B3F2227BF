@@ -1,0 +1,135 @@
+﻿@inherits LayoutComponentBase
+
+@inject IJSRuntime JS
+@inject NavigationManager Nav
+
+<div class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
+    <!-- Viršutinis navigacijos meniu -->
+    <header class="sticky top-0 z-50 w-full bg-white/70 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+
+            <!-- Logotipas / Pavadinimas -->
+            <div class="flex items-center gap-2 cursor-pointer" onclick="window.location.href='/'">
+                <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-200">
+                    <span class="text-white text-xl font-black">V</span>
+                </div>
+                <span class="text-xl font-black tracking-tight uppercase">Vinilo Mainai</span>
+            </div>
+
+            <!-- Meniu nuorodos -->
+            <nav class="hidden md:flex items-center gap-8">
+                <NavLink href="" Match="NavLinkMatch.All" class="nav-link font-bold text-slate-500 hover:text-indigo-600 transition-colors">
+                    Pradžia
+                </NavLink>
+                @if (isAuthenticated)
+                {
+                    <NavLink href="collections" class="nav-link font-bold text-slate-500 hover:text-indigo-600 transition-colors">
+                        Kolekcija
+                    </NavLink>
+                    <NavLink href="trades" class="nav-link font-bold text-slate-500 hover:text-indigo-600 transition-colors">
+                        Mainų pasiūlymai
+                    </NavLink>
+                    <NavLink href="about" class="nav-link font-bold text-slate-500 hover:text-indigo-600 transition-colors">
+                        Apie projektą
+                    </NavLink>
+                    <NavLink href="AddVinyl" class="bg-indigo-600 text-white px-5 py-2 rounded-xl text-sm font-bold shadow-lg shadow-indigo-100 hover:scale-105 transition-transform">
+                        + Pridėti plokštelę
+                    </NavLink>
+                }
+                else
+                {
+                    <NavLink href="mainomos" class="nav-link font-bold text-slate-500 hover:text-indigo-600 transition-colors">
+                        Mainomos
+                    </NavLink>
+                    <NavLink href="about" class="nav-link font-bold text-slate-500 hover:text-indigo-600 transition-colors">
+                        Apie projektą
+                    </NavLink>
+                }
+            </nav>
+
+            <!-- Naudotojo zona -->
+            <div class="flex items-center gap-4">
+                @if (isAuthenticated)
+                {
+                    <button @onclick="Logout" class="hidden sm:block text-sm font-bold text-slate-600 hover:text-indigo-600 bg-transparent border-0">Atsijungti</button>
+                }
+                else
+                {
+                    <NavLink href="login" class="hidden sm:block text-sm font-bold text-slate-600 hover:text-indigo-600">
+                        Prisijungti
+                    </NavLink>
+                    <NavLink href="register" class="bg-slate-900 text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-xl shadow-slate-200 hover:scale-105 transition-transform">
+                        Registruotis
+                    </NavLink>
+                }
+            </div>
+        </div>
+    </header>
+
+    <!-- Pagrindinis puslapio turinys -->
+    <main class="flex-grow">
+        <div class="max-w-7xl mx-auto px-6 py-10">
+            @Body
+        </div>
+    </main>
+
+    <!-- Apačia (Footer) -->
+    <footer class="bg-white border-t border-slate-200 py-12">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-slate-400 text-sm italic">
+                &copy; 2026 Vinilo Mainai - Bakalauro baigiamasis projektas
+            </div>
+            <div class="flex gap-6 text-slate-400 text-sm font-medium">
+                <a href="#" class="hover:text-slate-600">Privatumo politika</a>
+                <a href="#" class="hover:text-slate-600">Naudojimosi taisyklės</a>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<style>
+    /* NavLink aktyvios nuorodos stilius */
+    .nav-link.active {
+        color: #4f46e5 !important; /* Indigo-600 */
+        position: relative;
+    }
+
+    .nav-link.active::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #4f46e5;
+        border-radius: 2px;
+    }
+</style>
+
+@code {
+    private bool isAuthenticated = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var token = await JS.InvokeAsync<string>("localStorage.getItem", "authToken");
+            isAuthenticated = !string.IsNullOrEmpty(token);
+        }
+        catch
+        {
+            isAuthenticated = false;
+        }
+    }
+
+    private async Task Logout()
+    {
+        try
+        {
+            await JS.InvokeVoidAsync("localStorage.removeItem", "authToken");
+            await JS.InvokeVoidAsync("localStorage.removeItem", "userEmail");
+        }
+        catch { }
+        Nav.NavigateTo("/", true);
+    }
+}

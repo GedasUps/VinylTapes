@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="VinylExchange.Client/VinylExchange.Client.csproj" Id="0ef1ff09-b9f4-4c32-ac03-65de80c0032e" />
+  <Project Path="VinylTapes.Shared/VinylTapes.Shared.csproj" Id="38805aa9-596b-4dfc-af3b-ad8ec841a894" />
+  <Project Path="VinylTapes/VinylTapes.csproj" />
+</Solution>

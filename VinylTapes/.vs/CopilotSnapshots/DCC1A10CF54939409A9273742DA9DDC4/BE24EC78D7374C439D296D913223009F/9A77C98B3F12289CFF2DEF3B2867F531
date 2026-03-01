@@ -1,0 +1,138 @@
+﻿@page "/AddVinyl"
+@using VinylTapes.Shared.Models
+@inject HttpClient Http
+@inject NavigationManager Nav
+
+<div class="max-w-4xl mx-auto py-10 px-6">
+    <h1 class="text-4xl font-black text-slate-900 mb-8 tracking-tight">Pridėti naują plokštelę</h1>
+
+    <!-- 1 ŽINGSNIS: Paieška pagal ID -->
+    <div class="bg-white p-8 rounded-[2rem] shadow-xl border border-slate-100 mb-10">
+        <label class="block text-sm font-bold text-slate-500 uppercase tracking-wider mb-3">Discogs leidinio ID</label>
+        <div class="flex gap-4">
+            <input @bind="discogsId" type="number" placeholder="Pvz: 249504"
+                   class="flex-grow bg-slate-50 border-none rounded-2xl px-6 py-4 text-lg outline-none focus:ring-2 focus:ring-indigo-500 transition-all" />
+            <button @onclick="FetchPreview" disabled="@isFetching"
+                    class="bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-indigo-700 transition-all disabled:opacity-50">
+                @(isFetching ? "Ieškoma..." : "Rasti info")
+            </button>
+        </div>
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <p class="text-red-500 mt-4 font-medium">@errorMessage</p>
+        }
+    </div>
+
+    @if (previewVinyl != null)
+    {
+        <!-- 2 ŽINGSNIS: Peržiūra ir papildomi duomenys -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 animate-in fade-in slide-in-from-bottom-4 duration-500">
+
+            <!-- Plokštelės korta -->
+            <div class="bg-white p-6 rounded-[2.5rem] shadow-2xl border border-slate-50">
+                <div class="aspect-square bg-slate-100 rounded-[2rem] mb-6 overflow-hidden">
+                    <img src="https://via.placeholder.com/400?text=Vinilas" class="w-full h-full object-cover" />
+                </div>
+                <h2 class="text-2xl font-black text-slate-900">@previewVinyl.Albumas</h2>
+                <p class="text-indigo-600 font-bold text-lg">@previewVinyl.Atlikejas</p>
+                <div class="mt-4 flex gap-3 flex-wrap">
+                    <span class="bg-slate-100 px-3 py-1 rounded-full text-xs font-bold text-slate-500 uppercase">@previewVinyl.Metai</span>
+                    <span class="bg-slate-100 px-3 py-1 rounded-full text-xs font-bold text-slate-500 uppercase">@previewVinyl.IrasuKompanija</span>
+                </div>
+            </div>
+
+            <!-- Registracijos forma -->
+            <div class="flex flex-col gap-6">
+                <div class="bg-white p-8 rounded-[2rem] shadow-lg border border-slate-50">
+                    <h3 class="text-lg font-bold mb-4">Informacija apie tavo egzempliorių</h3>
+
+                    <div class="mb-4">
+                        <label class="block text-xs font-bold text-slate-400 uppercase mb-2">Būklė (Goldmine)</label>
+                        <select @bind="selectedCondition" class="w-full bg-slate-50 border-none rounded-xl px-4 py-3 outline-none">
+                            <option value="1">Mint (M)</option>
+                            <option value="2">Near Mint (NM)</option>
+                            <option value="3">Very Good Plus (VG+)</option>
+                            <option value="4">Very Good (VG)</option>
+                            <option value="5">Good (G)</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-xs font-bold text-slate-400 uppercase mb-2">Įsigijimo kaina (€)</label>
+                        <input @bind="purchasePrice" type="number" step="0.01"
+                               class="w-full bg-slate-50 border-none rounded-xl px-4 py-3 outline-none" />
+                    </div>
+
+                    <button @onclick="SubmitRegistration"
+                            class="w-full bg-slate-900 text-white py-4 rounded-2xl font-bold hover:bg-black transition-all shadow-lg shadow-slate-200">
+                        Įtraukti į kolekciją
+                    </button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    private int discogsId;
+    private bool isFetching = false;
+    private string? errorMessage;
+    private PloksteleDto? previewVinyl;
+
+    // Papildomi laukai
+    private int selectedCondition = 2; // Default: NM
+    private decimal purchasePrice = 0;
+
+    private async Task FetchPreview()
+    {
+        isFetching = true;
+        errorMessage = null;
+        try
+        {
+            // Naudojame tavo DB esantį testinį naudotoją
+            string email = "user@example.com";
+
+            // TEISINGAS ADRESAS: api/Vinyl/preview/{id}?el_pastas=...
+            var url = $"api/Vinyl/preview/{discogsId}?el_pastas={Uri.EscapeDataString(email)}";
+
+            var response = await Http.GetAsync(url);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var options = new System.Text.Json.JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                // Blazor dabar sėkmingai perskaitys List<float>
+                previewVinyl = await response.Content.ReadFromJsonAsync<PloksteleDto>(options);
+            }
+            else
+            {
+                // Jei API grąžino klaidą (pvz. 400), perskaitome jos tekstą
+                var errorText = await response.Content.ReadAsStringAsync();
+                errorMessage = $"Serverio klaida: {errorText}";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "Programos klaida: " + ex.Message;
+        }
+        finally
+        {
+            isFetching = false;
+        }
+    }
+
+    private async Task SubmitRegistration()
+    {
+        // Čia siųsime POST užklausą į API, kad įrašytų į bazę su būkle ir kaina
+        var response = await Http.PostAsJsonAsync($"api/Vinyl/add", new
+        {
+            DiscogsId = discogsId,
+            ConditionId = selectedCondition,
+            Price = purchasePrice
+        });
+
+        if (response.IsSuccessStatusCode)
+        {
+            Nav.NavigateTo("/"); // Grįžtame į pradžią
+        }
+    }
+}

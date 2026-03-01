@@ -1,0 +1,613 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinylexchange.client\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|solutionrelative:vinylexchange.client\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinylexchange.client\\pages\\vinyldetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|solutionrelative:vinylexchange.client\\pages\\vinyldetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinylexchange.client\\services\\authstateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|solutionrelative:vinylexchange.client\\services\\authstateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinylexchange.client\\pages\\mainomos.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|solutionrelative:vinylexchange.client\\pages\\mainomos.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinyltapes\\controllers\\vinylcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|solutionrelative:vinyltapes\\controllers\\vinylcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinylexchange.client\\components\\vinylcard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|solutionrelative:vinylexchange.client\\components\\vinylcard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinylexchange.client\\pages\\addvinyl.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|solutionrelative:vinylexchange.client\\pages\\addvinyl.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinylexchange.client\\pages\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|solutionrelative:vinylexchange.client\\pages\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinylexchange.client\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|solutionrelative:vinylexchange.client\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinylexchange.client\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|solutionrelative:vinylexchange.client\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinylexchange.client\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|solutionrelative:vinylexchange.client\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinylexchange.client\\pages\\mycollections.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|solutionrelative:vinylexchange.client\\pages\\mycollections.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinylexchange.client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|solutionrelative:vinylexchange.client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinylexchange.client\\components\\searchbar.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|solutionrelative:vinylexchange.client\\components\\searchbar.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38805AA9-596B-4DFC-AF3B-AD8EC841A894}|VinylTapes.Shared\\VinylTapes.Shared.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinyltapes.shared\\models\\ploksteledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38805AA9-596B-4DFC-AF3B-AD8EC841A894}|VinylTapes.Shared\\VinylTapes.Shared.csproj|solutionrelative:vinyltapes.shared\\models\\ploksteledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38805AA9-596B-4DFC-AF3B-AD8EC841A894}|VinylTapes.Shared\\VinylTapes.Shared.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinyltapes.shared\\models\\sarasaidto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38805AA9-596B-4DFC-AF3B-AD8EC841A894}|VinylTapes.Shared\\VinylTapes.Shared.csproj|solutionrelative:vinyltapes.shared\\models\\sarasaidto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38805AA9-596B-4DFC-AF3B-AD8EC841A894}|VinylTapes.Shared\\VinylTapes.Shared.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinyltapes.shared\\models\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38805AA9-596B-4DFC-AF3B-AD8EC841A894}|VinylTapes.Shared\\VinylTapes.Shared.csproj|solutionrelative:vinyltapes.shared\\models\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinylexchange.client\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|solutionrelative:vinylexchange.client\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinyltapes\\models\\plokstele.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|solutionrelative:vinyltapes\\models\\plokstele.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinyltapes\\data\\vinyldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|solutionrelative:vinyltapes\\data\\vinyldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinyltapes\\services\\discogsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|solutionrelative:vinyltapes\\services\\discogsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinyltapes\\models\\statusai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|solutionrelative:vinyltapes\\models\\statusai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinyltapes\\controllers\\vectorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|solutionrelative:vinyltapes\\controllers\\vectorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinyltapes\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|solutionrelative:vinyltapes\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinyltapes\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|solutionrelative:vinyltapes\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinyltapes\\services\\vectorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|solutionrelative:vinyltapes\\services\\vectorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinyltapes\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|solutionrelative:vinyltapes\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinyltapes\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|solutionrelative:vinyltapes\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinyltapes\\models\\daina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|solutionrelative:vinyltapes\\models\\daina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinylexchange.client\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|solutionrelative:vinylexchange.client\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinylexchange.client\\vinylexchange.client.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{0EF1FF09-B9F4-4C32-AC03-65DE80C0032E}|VinylExchange.Client\\VinylExchange.Client.csproj|solutionrelative:vinylexchange.client\\vinylexchange.client.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinyltapes\\vinyltapes.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|solutionrelative:vinyltapes\\vinyltapes.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinyltapes\\models\\buseno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|solutionrelative:vinyltapes\\models\\buseno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinyltapes\\models\\sarasai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|solutionrelative:vinyltapes\\models\\sarasai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinyltapes\\models\\naudotojai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|solutionrelative:vinyltapes\\models\\naudotojai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinyltapes\\models\\sarasutipai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|solutionrelative:vinyltapes\\models\\sarasutipai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|c:\\users\\gedas\\desktop\\unversitetas\\bakis\\gtuhub\\vinyltapes\\vinyltapes\\vinyltapes\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F258B2C2-F41B-040C-0AA7-85F22F906189}|VinylTapes\\VinylTapes.csproj|solutionrelative:vinyltapes\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "VinylDetails.razor",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\Pages\\VinylDetails.razor",
+              "RelativeDocumentMoniker": "VinylExchange.Client\\Pages\\VinylDetails.razor",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\Pages\\VinylDetails.razor",
+              "RelativeToolTip": "VinylExchange.Client\\Pages\\VinylDetails.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-01T15:12:56.524Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthStateService.cs",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\Services\\AuthStateService.cs",
+              "RelativeDocumentMoniker": "VinylExchange.Client\\Services\\AuthStateService.cs",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\Services\\AuthStateService.cs",
+              "RelativeToolTip": "VinylExchange.Client\\Services\\AuthStateService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-01T14:54:51.641Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Mainomos.razor",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\Pages\\Mainomos.razor",
+              "RelativeDocumentMoniker": "VinylExchange.Client\\Pages\\Mainomos.razor",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\Pages\\Mainomos.razor",
+              "RelativeToolTip": "VinylExchange.Client\\Pages\\Mainomos.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-01T14:45:36.976Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "VinylController.cs",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Controllers\\VinylController.cs",
+              "RelativeDocumentMoniker": "VinylTapes\\Controllers\\VinylController.cs",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Controllers\\VinylController.cs",
+              "RelativeToolTip": "VinylTapes\\Controllers\\VinylController.cs",
+              "ViewState": "AgIAAMYAAAAAAAAAAAAYwBQAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-16T21:46:28.299Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "VinylExchange.Client\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "VinylExchange.Client\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACIAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-27T17:47:42.761Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "VinylCard.razor",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\Components\\VinylCard.razor",
+              "RelativeDocumentMoniker": "VinylExchange.Client\\Components\\VinylCard.razor",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\Components\\VinylCard.razor",
+              "RelativeToolTip": "VinylExchange.Client\\Components\\VinylCard.razor",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAowAAAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-27T09:58:41.286Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AddVinyl.razor",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\Pages\\AddVinyl.razor",
+              "RelativeDocumentMoniker": "VinylExchange.Client\\Pages\\AddVinyl.razor",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\Pages\\AddVinyl.razor",
+              "RelativeToolTip": "VinylExchange.Client\\Pages\\AddVinyl.razor",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAAAGMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-27T19:55:10.72Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Register.razor",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\Pages\\Register.razor",
+              "RelativeDocumentMoniker": "VinylExchange.Client\\Pages\\Register.razor",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\Pages\\Register.razor",
+              "RelativeToolTip": "VinylExchange.Client\\Pages\\Register.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-28T10:51:10.075Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Login.razor",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\Pages\\Login.razor",
+              "RelativeDocumentMoniker": "VinylExchange.Client\\Pages\\Login.razor",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\Pages\\Login.razor",
+              "RelativeToolTip": "VinylExchange.Client\\Pages\\Login.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-28T10:47:21.629Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Home.razor",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "VinylExchange.Client\\Pages\\Home.razor",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\Pages\\Home.razor",
+              "RelativeToolTip": "VinylExchange.Client\\Pages\\Home.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-27T10:02:25.155Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\_Imports.razor",
+              "RelativeDocumentMoniker": "VinylExchange.Client\\_Imports.razor",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\_Imports.razor",
+              "RelativeToolTip": "VinylExchange.Client\\_Imports.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-27T10:17:14.75Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MyCollections.razor",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\Pages\\MyCollections.razor",
+              "RelativeDocumentMoniker": "VinylExchange.Client\\Pages\\MyCollections.razor",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\Pages\\MyCollections.razor",
+              "RelativeToolTip": "VinylExchange.Client\\Pages\\MyCollections.razor",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAMwCIAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-28T19:20:59.401Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\Program.cs",
+              "RelativeDocumentMoniker": "VinylExchange.Client\\Program.cs",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\Program.cs",
+              "RelativeToolTip": "VinylExchange.Client\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T09:57:24.935Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "SearchBar.razor",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\Components\\SearchBar.razor",
+              "RelativeDocumentMoniker": "VinylExchange.Client\\Components\\SearchBar.razor",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\Components\\SearchBar.razor",
+              "RelativeToolTip": "VinylExchange.Client\\Components\\SearchBar.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-27T10:01:02.363Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "PloksteleDto.cs",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes.Shared\\Models\\PloksteleDto.cs",
+              "RelativeDocumentMoniker": "VinylTapes.Shared\\Models\\PloksteleDto.cs",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes.Shared\\Models\\PloksteleDto.cs",
+              "RelativeToolTip": "VinylTapes.Shared\\Models\\PloksteleDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T17:20:28.493Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "SarasaiDto.cs",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes.Shared\\Models\\SarasaiDto.cs",
+              "RelativeDocumentMoniker": "VinylTapes.Shared\\Models\\SarasaiDto.cs",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes.Shared\\Models\\SarasaiDto.cs",
+              "RelativeToolTip": "VinylTapes.Shared\\Models\\SarasaiDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-28T19:20:34.429Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "UserDto.cs",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes.Shared\\Models\\UserDto.cs",
+              "RelativeDocumentMoniker": "VinylTapes.Shared\\Models\\UserDto.cs",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes.Shared\\Models\\UserDto.cs",
+              "RelativeToolTip": "VinylTapes.Shared\\Models\\UserDto.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAqwAsAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-28T10:52:48.752Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\wwwroot\\index.html",
+              "RelativeDocumentMoniker": "VinylExchange.Client\\wwwroot\\index.html",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\wwwroot\\index.html",
+              "RelativeToolTip": "VinylExchange.Client\\wwwroot\\index.html",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-02-27T09:55:56.097Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Plokstele.cs",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Models\\Plokstele.cs",
+              "RelativeDocumentMoniker": "VinylTapes\\Models\\Plokstele.cs",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Models\\Plokstele.cs",
+              "RelativeToolTip": "VinylTapes\\Models\\Plokstele.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwBoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T21:24:03.398Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "VinylDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Data\\VinylDbContext.cs",
+              "RelativeDocumentMoniker": "VinylTapes\\Data\\VinylDbContext.cs",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Data\\VinylDbContext.cs",
+              "RelativeToolTip": "VinylTapes\\Data\\VinylDbContext.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAxwBoAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T20:43:21.019Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "DiscogsService.cs",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Services\\DiscogsService.cs",
+              "RelativeDocumentMoniker": "VinylTapes\\Services\\DiscogsService.cs",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Services\\DiscogsService.cs",
+              "RelativeToolTip": "VinylTapes\\Services\\DiscogsService.cs",
+              "ViewState": "AgIAAOkAAAAAAAAAAAAAAK8AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-16T21:41:47.334Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Statusai.cs",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Models\\Statusai.cs",
+              "RelativeDocumentMoniker": "VinylTapes\\Models\\Statusai.cs",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Models\\Statusai.cs",
+              "RelativeToolTip": "VinylTapes\\Models\\Statusai.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-28T18:59:16.715Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "VectorController.cs",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Controllers\\VectorController.cs",
+              "RelativeDocumentMoniker": "VinylTapes\\Controllers\\VectorController.cs",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Controllers\\VectorController.cs",
+              "RelativeToolTip": "VinylTapes\\Controllers\\VectorController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAuwBAAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T22:04:19.999Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Program.cs",
+              "RelativeDocumentMoniker": "VinylTapes\\Program.cs",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Program.cs",
+              "RelativeToolTip": "VinylTapes\\Program.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAcwEEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-16T08:54:51.646Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\appsettings.json",
+              "RelativeDocumentMoniker": "VinylTapes\\appsettings.json",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\appsettings.json",
+              "RelativeToolTip": "VinylTapes\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-02-16T10:43:36.348Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "VectorService.cs",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Services\\VectorService.cs",
+              "RelativeDocumentMoniker": "VinylTapes\\Services\\VectorService.cs",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Services\\VectorService.cs",
+              "RelativeToolTip": "VinylTapes\\Services\\VectorService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T21:30:07.548Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "VinylTapes\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "VinylTapes\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAIwCkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T11:05:57.618Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "VinylTapes\\Services\\UserService.cs",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Services\\UserService.cs",
+              "RelativeToolTip": "VinylTapes\\Services\\UserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T20:47:07.723Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Daina.cs",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Models\\Daina.cs",
+              "RelativeDocumentMoniker": "VinylTapes\\Models\\Daina.cs",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Models\\Daina.cs",
+              "RelativeToolTip": "VinylTapes\\Models\\Daina.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T20:37:15.068Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "App.razor",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\App.razor",
+              "RelativeDocumentMoniker": "VinylExchange.Client\\App.razor",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\App.razor",
+              "RelativeToolTip": "VinylExchange.Client\\App.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-27T09:55:31.477Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "VinylExchange.Client.csproj",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\VinylExchange.Client.csproj",
+              "RelativeDocumentMoniker": "VinylExchange.Client\\VinylExchange.Client.csproj",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylExchange.Client\\VinylExchange.Client.csproj",
+              "RelativeToolTip": "VinylExchange.Client\\VinylExchange.Client.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-02-27T10:27:29.988Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "VinylTapes.csproj",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\VinylTapes.csproj",
+              "RelativeDocumentMoniker": "VinylTapes\\VinylTapes.csproj",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\VinylTapes.csproj",
+              "RelativeToolTip": "VinylTapes\\VinylTapes.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-02-16T21:36:20.673Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Buseno.cs",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Models\\Buseno.cs",
+              "RelativeDocumentMoniker": "VinylTapes\\Models\\Buseno.cs",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Models\\Buseno.cs",
+              "RelativeToolTip": "VinylTapes\\Models\\Buseno.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T20:26:32.657Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Sarasai.cs",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Models\\Sarasai.cs",
+              "RelativeDocumentMoniker": "VinylTapes\\Models\\Sarasai.cs",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Models\\Sarasai.cs",
+              "RelativeToolTip": "VinylTapes\\Models\\Sarasai.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T08:11:21.043Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Naudotojai.cs",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Models\\Naudotojai.cs",
+              "RelativeDocumentMoniker": "VinylTapes\\Models\\Naudotojai.cs",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Models\\Naudotojai.cs",
+              "RelativeToolTip": "VinylTapes\\Models\\Naudotojai.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T08:21:15.954Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "SarasuTipai.cs",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Models\\SarasuTipai.cs",
+              "RelativeDocumentMoniker": "VinylTapes\\Models\\SarasuTipai.cs",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Models\\SarasuTipai.cs",
+              "RelativeToolTip": "VinylTapes\\Models\\SarasuTipai.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T08:11:22.63Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "VinylTapes\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Gedas\\Desktop\\Unversitetas\\Bakis\\gtuhub\\VinylTapes\\VinylTapes\\VinylTapes\\Properties\\launchSettings.json",
+              "RelativeToolTip": "VinylTapes\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-02-20T16:58:29.151Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

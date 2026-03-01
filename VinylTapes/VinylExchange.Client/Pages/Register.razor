@@ -1,0 +1,66 @@
+﻿@page "/register"
+@using VinylTapes.Shared.Models
+@inject HttpClient Http
+@inject NavigationManager Nav
+
+<div class="min-h-[90vh] flex items-center justify-center py-12 px-6">
+    <div class="bg-white w-full max-w-xl p-12 rounded-[3rem] shadow-2xl border border-slate-50 animate-in fade-in slide-in-from-bottom-8 duration-700">
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-black text-slate-900 tracking-tight">Sukurti paskyrą</h1>
+            <p class="text-slate-400 mt-2">Prisijunkite prie vinilo bendruomenės</p>
+        </div>
+
+        <EditForm Model="registerModel" OnValidSubmit="HandleRegister">
+            <DataAnnotationsValidator />
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Vardas -->
+                <div class="md:col-span-1">
+                    <label class="block text-xs font-bold text-slate-400 uppercase mb-2 ml-4">Vardas</label>
+                    <InputText @bind-Value="registerModel.Vardas" class="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-indigo-500 transition-all" />
+                    <ValidationMessage For="@(() => registerModel.Vardas)" class="text-red-500 text-xs mt-1 ml-4" />
+                </div>
+
+                <!-- El. paštas -->
+                <div class="md:col-span-1">
+                    <label class="block text-xs font-bold text-slate-400 uppercase mb-2 ml-4">El. paštas</label>
+                    <InputText @bind-Value="registerModel.ElPastas" class="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-indigo-500 transition-all" />
+                    <ValidationMessage For="@(() => registerModel.ElPastas)" class="text-red-500 text-xs mt-1 ml-4" />
+                </div>
+
+                <!-- Slaptažodis -->
+                <div class="md:col-span-1">
+                    <label class="block text-xs font-bold text-slate-400 uppercase mb-2 ml-4">Slaptažodis</label>
+                    <InputText @bind-Value="registerModel.Slaptazodis" type="password" class="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-indigo-500 transition-all" />
+                    <ValidationMessage For="@(() => registerModel.Slaptazodis)" class="text-red-500 text-xs mt-1 ml-4" />
+                </div>
+
+                <!-- Pakartoti slaptažodį -->
+                <div class="md:col-span-1">
+                    <label class="block text-xs font-bold text-slate-400 uppercase mb-2 ml-4">Pakartoti</label>
+                    <InputText @bind-Value="registerModel.PakartotiSlaptazodi" type="password" class="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-indigo-500 transition-all" />
+                    <ValidationMessage For="@(() => registerModel.PakartotiSlaptazodi)" class="text-red-500 text-xs mt-1 ml-4" />
+                </div>
+            </div>
+
+            <button type="submit" class="w-full bg-slate-900 text-white py-5 rounded-2xl font-bold text-lg hover:bg-black transition-all shadow-2xl mt-8">
+                Registruotis
+            </button>
+        </EditForm>
+
+        <div class="text-center mt-8">
+            <p class="text-slate-400">Turite paskyrą? <a href="/login" class="text-indigo-600 font-bold hover:underline">Prisijungti</a></p>
+        </div>
+    </div>
+</div>
+
+@code {
+    private RegisterDto registerModel = new();
+
+    private async Task HandleRegister()
+    {
+        // Siunčiame duomenis į tavo API
+        var response = await Http.PostAsJsonAsync("api/auth/register", registerModel);
+        if (response.IsSuccessStatusCode) Nav.NavigateTo("/login");
+    }
+}

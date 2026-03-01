@@ -1,0 +1,63 @@
+﻿@page "/collections"
+@using VinylTapes.Shared.Models
+@inject HttpClient Http
+@inject IJSRuntime JS
+
+<h1 class="text-3xl font-bold mb-6">Mano sąrašai</h1>
+
+@if (isLoading)
+{
+    <p>Įkeliam...</p>
+}
+else if (collections == null || !collections.Any())
+{
+    <p>Jūsų sąrašai nerasti.</p>
+}
+else
+{
+    @foreach (var c in collections)
+    {
+        <div class="mb-8">
+            <h2 class="text-xl font-semibold mb-4">@((c.TipasName ?? "Sąrašas"))</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                @foreach (var v in c.Ploksteles)
+                {
+                    <VinylExchange.Client.Components.VinylCard Record="v" />
+                }
+            </div>
+        </div>
+    }
+}
+
+@code {
+    private List<SarasaiDto>? collections;
+    private bool isLoading = true;
+    private string userEmail = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            userEmail = await JS.InvokeAsync<string>("localStorage.getItem", "userEmail") ?? string.Empty;
+        }
+        catch
+        {
+            userEmail = string.Empty;
+        }
+
+        if (string.IsNullOrEmpty(userEmail))
+        {
+            isLoading = false;
+            return;
+        }
+
+        var url = $"api/Vinyl/my-collections?el_pastas={Uri.EscapeDataString(userEmail)}";
+        var resp = await Http.GetAsync(url);
+        if (resp.IsSuccessStatusCode)
+        {
+            collections = await resp.Content.ReadFromJsonAsync<List<SarasaiDto>>();
+        }
+
+        isLoading = false;
+    }
+}

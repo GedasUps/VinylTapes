@@ -1,0 +1,40 @@
+﻿@page "/mainomos"
+@using VinylTapes.Shared.Models
+@inject HttpClient Http
+
+<h1 class="text-3xl font-bold mb-6">Mainomos plokštelės</h1>
+
+@if (isLoading)
+{
+    <p>Įkeliam...</p>
+}
+else if (items == null || !items.Any())
+{
+    <p>Nerasta mainomų plokštelių.</p>
+}
+else
+{
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        @foreach (var v in items)
+        {
+            <div role="button" class="cursor-pointer" @onclick="() => OpenDetails(v.DiscogsId ?? 0, "mainomos")">
+                <VinylExchange.Client.Components.VinylCard Record="v" />
+            </div>
+        }
+    </div>
+}
+
+@code {
+    private List<PloksteleDto>? items;
+    private bool isLoading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var resp = await Http.GetAsync("api/Vinyl/public/mainomos");
+        if (resp.IsSuccessStatusCode)
+        {
+            items = await resp.Content.ReadFromJsonAsync<List<PloksteleDto>>();
+        }
+        isLoading = false;
+    }
+}

@@ -1,0 +1,240 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using Microsoft.EntityFrameworkCore.Storage.Json;
+using System.Globalization;
+using System.Text.Json;
+using System.Web;
+using VinylTapes.Data;
+using VinylTapes.Models;
+
+namespace VinylTapes.Services
+{
+
+    public class indentifier
+    {
+        public string Type { get; set; } = null!;
+        public string Value { get; set; } = null!;
+
+        public string Description { get; set; }     
+
+        public indentifier(string type, string value, string descr)
+        {
+            Type = type;
+            Value = value;
+            Description = descr;
+        }
+        public override string ToString()
+        {
+            return Description == null ? $"{Type} ({Value}) : {Description} " : $"{Type} : {Value} ";
+        }
+
+    }
+    public class DiscogsService
+    {
+        
+            private readonly HttpClient _httpClient;
+            private readonly IConfiguration _configuration;
+            private readonly VinylDbContext _context;
+            private readonly VectorService _vectorService; // Pridėtas vektorių servisas
+
+            public DiscogsService(HttpClient httpClient, IConfiguration configuration, VinylDbContext context, VectorService vectorService)
+            {
+                _httpClient = httpClient;
+                _httpClient.DefaultRequestHeaders.Add("User-Agent", "VinylExchangeApp/1.0");
+                _configuration = configuration;
+                _context = context;
+                _vectorService = vectorService;
+            }
+
+            public async Task<Plokstele?> GetRecordFromDiscogsAsync(int discogsId, string accessToken, string accessSecret)
+            {
+                var consumerKey = _configuration["DiscogsConnection:Consumer_Key"];
+                var consumerSecret = _configuration["DiscogsConnection:Consumer_Secret"];
+
+                var authHeader = $"OAuth oauth_consumer_key=\"{consumerKey}\", " +
+                                 $"oauth_nonce=\"{Guid.NewGuid()}\", " +
+                                 $"oauth_token=\"{accessToken}\", " +
+                                 $"oauth_signature=\"{consumerSecret}&{accessSecret}\", " +
+                                 $"oauth_signature_method=\"PLAINTEXT\", " +
+                                 $"oauth_timestamp=\"{DateTimeOffset.UtcNow.ToUnixTimeSeconds()}\"";
+
+                var request = new HttpRequestMessage(HttpMethod.Get, $"https://api.discogs.com/releases/{discogsId}");
+                request.Headers.Add("Authorization", authHeader);
+
+                var response = await _httpClient.SendAsync(request);
+                if (!response.IsSuccessStatusCode) return null;
+
+                var content = await response.Content.ReadAsStringAsync();
+                var json = JsonDocument.Parse(content).RootElement;
+
+                // 1. Sukuriame dainų sąrašą (Tracklist)
+                var dainos = new List<Daina>();
+                if (json.TryGetProperty("tracklist", out var tracklist))
+                {
+               // int i = 0;
+                    foreach (var track in tracklist.EnumerateArray())
+                    {
+                   // i++;
+                    dainos.Add(new Daina
+                    {
+                       // Id = i,
+                        Pavadinimas = Truncate(track.TryGetProperty("title", out var t) ? t.GetString() ?? "N/A" : "N/A", 100),
+                        Pozicija = Truncate(track.TryGetProperty("position", out var p) ? p.GetString() ?? "" : "", 10),
+                        Trukme = Truncate(track.TryGetProperty("duration", out var d) ? d.GetString() ?? "" : "", 10),
+                        FkPlokstele = discogsId // Įsitikink, kad tipas sutampa (string ar int)
+                    });
+                    }
+                }
+
+            //fix this with user logic later, for now just add to random list
+            var mano = new List<Sarasai>();
+            /*mano.Add(new Sarasai {
+                Id = 100,
+                Tipas = 1,
+                FkNaudotojai = "testuser",
+                FkMainai = 1,
+                FkMainaiNavigation = new Mainai(),
+                FkNaudotojaiNavigation =new Naudotojai() ,
+                FkPloksteles = new List<Plokstele>(),
+                TipasNavigation= new SarasuTipai()
+            
+            });*/
+
+            // 2. Paruošiame duomenis plokštelei
+            var plokstele = new Plokstele
+                {
+                    Discogsid = discogsId,
+                    Atlikejas = Truncate(json.GetProperty("artists")[0].GetProperty("name").GetString() ?? "Nežinomas", 100),
+                    Albumas = Truncate(json.GetProperty("title").GetString() ?? "Nežinomas", 255),
+                    Metai = json.TryGetProperty("year", out var y) ? y.GetInt16() : (short)0,
+                    IrasuKompanija = Truncate(json.TryGetProperty("labels", out var labels) ? labels[0].GetProperty("name").GetString() ?? "Nėra" : "Nėra", 255),
+                    Kontekstas = Truncate(json.TryGetProperty("notes", out var notes) ? notes.GetString() ?? "" : "", 1000),
+
+                    Formatas = Truncate(GetFormatSafe(json), 255),
+                    Matrica = Truncate(GetIdentifiersSafe(json, "Matrix"), 255),
+                    BruksninisKodas = 0, 
+
+                    Zanras = Truncate(GetArrayStringSafe(json, "genres"), 255),
+                    Stilius = Truncate(GetArrayStringSafe(json, "styles"), 255),
+
+                    Dainas = dainos 
+                };
+
+            // Do not assign Busena or Sarasai navigation here; caller will set Busena and create lists.
+
+                // 4. Sugeneruojame vektorių semantinei paieškai
+                string tekstasVektoriui = plokstele.ToString();
+                plokstele.Vektorius = _vectorService.GenerateVector(tekstasVektoriui);
+
+                return plokstele;
+            }
+
+           
+
+            private string GetFormatSafe(JsonElement json)
+            {
+                if (json.TryGetProperty("formats", out var f) && f.GetArrayLength() > 0)
+                {
+                    var name = f[0].TryGetProperty("name", out var n) ? n.GetString() : "";
+                    if (f[0].TryGetProperty("descriptions", out var d))
+                    {
+                        var desc = string.Join(", ", d.EnumerateArray().Select(x => x.GetString()));
+                        return $"{name} ({desc})";
+                    }
+                    return name ?? "";
+                }
+                return "";
+            }
+
+            private string GetIdentifiersSafe(JsonElement json, string typeToFind)
+            {
+                var results = new List<string>();
+                if (json.TryGetProperty("identifiers", out var idents))
+                {
+                    foreach (var id in idents.EnumerateArray())
+                    {
+                        string type = id.TryGetProperty("type", out var t) ? t.GetString() ?? "" : "";
+                        if (type.Contains(typeToFind, StringComparison.OrdinalIgnoreCase))
+                        {
+                            string value = id.TryGetProperty("value", out var v) ? v.GetString() ?? "" : "";
+                            results.Add(value);
+                        }
+                    }
+                }
+               
+                return results.Any() ? string.Join("; ", results) : "";
+            }
+
+            private string GetArrayStringSafe(JsonElement json, string propName)
+            {
+                if (json.TryGetProperty(propName, out var arr))
+                {
+                    return string.Join(", ", arr.EnumerateArray().Select(x => x.GetString()));
+                }
+                return "";
+            }
+            private string Truncate(string? value, int maxLength)
+            {
+                if (string.IsNullOrEmpty(value)) return string.Empty;
+                return value.Length <= maxLength ? value : value.Substring(0, maxLength);
+            }
+        }
+    
+
+
+
+
+        public class DiscogsAuthService
+        {
+            private readonly HttpClient _httpClient;
+            private readonly IConfiguration _config;
+            private readonly string _callbackUrl = "http://localhost:5195/api/auth/callback";
+
+            public DiscogsAuthService(HttpClient httpClient, IConfiguration config)
+            {
+                _httpClient = httpClient;
+                _config = config;
+                _httpClient.DefaultRequestHeaders.Add("User-Agent", "VinylTapesApp/1.0");
+            }
+
+            public async Task<(string token, string secret)> GetRequestTokenAsync()
+            {
+                var consumerKey = _config["DiscogsConnection:Consumer_Key"];
+                var consumerSecret = _config["DiscogsConnection:Consumer_Secret"];
+
+                var authHeader = $"OAuth oauth_consumer_key=\"{consumerKey}\", oauth_nonce=\"{Guid.NewGuid()}\", oauth_signature=\"{consumerSecret}&\", oauth_signature_method=\"PLAINTEXT\", oauth_timestamp=\"{DateTimeOffset.UtcNow.ToUnixTimeSeconds()}\", oauth_callback=\"{HttpUtility.UrlEncode(_callbackUrl)}\"";
+
+                var request = new HttpRequestMessage(HttpMethod.Get, "https://api.discogs.com/oauth/request_token");
+                request.Headers.Add("Authorization", authHeader);
+
+                var response = await _httpClient.SendAsync(request);
+                var content = await response.Content.ReadAsStringAsync();
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw new Exception($"Discogs klaida: {response.StatusCode}. Žinutė: {content}");
+                }
+
+                var query = HttpUtility.ParseQueryString(content);
+                return (query["oauth_token"] ?? "", query["oauth_token_secret"] ?? "");
+            }
+
+            public async Task<(string accessToken, string accessSecret)> GetAccessTokenAsync(string verifier, string tempToken, string tempSecret)
+            {
+                var consumerKey = _config["DiscogsConnection:Consumer_Key"];
+                var consumerSecret = _config["DiscogsConnection:Consumer_Secret"];
+
+                var authHeader = $"OAuth oauth_consumer_key=\"{consumerKey}\", oauth_nonce=\"{Guid.NewGuid()}\", oauth_token=\"{tempToken}\", oauth_signature=\"{consumerSecret}&{tempSecret}\", oauth_signature_method=\"PLAINTEXT\", oauth_timestamp=\"{DateTimeOffset.UtcNow.ToUnixTimeSeconds()}\", oauth_verifier=\"{verifier}\"";
+
+                var request = new HttpRequestMessage(HttpMethod.Post, "https://api.discogs.com/oauth/access_token");
+                request.Headers.Add("Authorization", authHeader);
+
+                var response = await _httpClient.SendAsync(request);
+                var content = await response.Content.ReadAsStringAsync();
+
+                var query = HttpUtility.ParseQueryString(content);
+                return (query["oauth_token"]!, query["oauth_token_secret"]!);
+            }
+        }
+    }

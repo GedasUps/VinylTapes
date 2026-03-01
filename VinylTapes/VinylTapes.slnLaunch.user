@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "VinylTapes\\VinylTapes.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "VinylExchange.Client\\VinylExchange.Client.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

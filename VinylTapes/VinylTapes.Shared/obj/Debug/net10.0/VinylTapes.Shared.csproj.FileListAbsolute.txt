@@ -1,0 +1,11 @@
+C:\Users\Gedas\Desktop\Unversitetas\Bakis\VinylTapes\VinylTapes.Shared\bin\Debug\net10.0\VinylTapes.Shared.deps.json
+C:\Users\Gedas\Desktop\Unversitetas\Bakis\VinylTapes\VinylTapes.Shared\bin\Debug\net10.0\VinylTapes.Shared.dll
+C:\Users\Gedas\Desktop\Unversitetas\Bakis\VinylTapes\VinylTapes.Shared\bin\Debug\net10.0\VinylTapes.Shared.pdb
+C:\Users\Gedas\Desktop\Unversitetas\Bakis\VinylTapes\VinylTapes.Shared\obj\Debug\net10.0\VinylTapes.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gedas\Desktop\Unversitetas\Bakis\VinylTapes\VinylTapes.Shared\obj\Debug\net10.0\VinylTapes.Shared.AssemblyInfoInputs.cache
+C:\Users\Gedas\Desktop\Unversitetas\Bakis\VinylTapes\VinylTapes.Shared\obj\Debug\net10.0\VinylTapes.Shared.AssemblyInfo.cs
+C:\Users\Gedas\Desktop\Unversitetas\Bakis\VinylTapes\VinylTapes.Shared\obj\Debug\net10.0\VinylTapes.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Gedas\Desktop\Unversitetas\Bakis\VinylTapes\VinylTapes.Shared\obj\Debug\net10.0\VinylTapes.Shared.dll
+C:\Users\Gedas\Desktop\Unversitetas\Bakis\VinylTapes\VinylTapes.Shared\obj\Debug\net10.0\refint\VinylTapes.Shared.dll
+C:\Users\Gedas\Desktop\Unversitetas\Bakis\VinylTapes\VinylTapes.Shared\obj\Debug\net10.0\VinylTapes.Shared.pdb
+C:\Users\Gedas\Desktop\Unversitetas\Bakis\VinylTapes\VinylTapes.Shared\obj\Debug\net10.0\ref\VinylTapes.Shared.dll
